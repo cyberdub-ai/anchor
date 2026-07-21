@@ -1,0 +1,11 @@
+services:
+  anchor:
+    image: ghcr.io/zhfahim/anchor:latest
+    container_name: anchor-stage
+    restart: unless-stopped
+    env_file:
+      - /srv/secrets/anchor.env
+    ports:
+      - "127.0.0.1:3023:3000"
+    volumes:
+      - /srv/data/anchor:/data
